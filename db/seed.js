@@ -12,17 +12,17 @@ var Promise = require('bluebird');
 
 var data = {
   student: [
-    {name: "Eduardo", school_id: "1", user_id: "1", fulfilled: false },
-    {name: "Molly", school_id: 1, user_id: 2, fulfilled: false},
-    {name: "Gabe", school_id: 2, user_id: 3, fulfilled: false},
-    {name: "Kate", school_id: 2, user_id: 4, toy_id: 1, fulfilled: true, donator_id: 1}
+    {name: "Eduardo", fulfilled: false },
+    {name: "Molly",  fulfilled: false},
+    {name: "Gabe",  fulfilled: false},
+    {name: "Kate",  fulfilled: true}
   ],
   school: [
     {name: "P.S. 1", address: "123 Fake St, Faketown, NY 11220"},
     {name: "P.S. 2", address: "5 Hanover Sq, New York, NY 10004"}
   ],
   donator: [
-    {name: "Toys for Tots", user_id: 7},
+    {name: "Toys for Tots"}
   ],
   toy: [
     {name: "Hatchimals Egg (Interactive)"}
