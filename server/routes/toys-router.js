@@ -9,3 +9,5 @@ router.get('/', (req, res, next) => {
   Toy.findAll({})
   .then(toys => res.send(toys));
 });
+
+module.exports = router;
