@@ -17,6 +17,14 @@ const User = db.define('users', {
     validate: {
       notEmpty: true
     }
+  },
+  usertype: {
+    type:   Sequelize.ENUM,
+    values: ['student', 'schooladmin', 'donator'],
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   }
 })
 
