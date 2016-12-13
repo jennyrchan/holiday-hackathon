@@ -10,4 +10,9 @@ router.get('/', (req, res, next) => {
   .then(toys => res.send(toys));
 });
 
+router.get('/:toyId', (req, res, next) => {
+  Toy.findById(req.params.toyId)
+  .then(toy => res.send(toy));
+});
+
 module.exports = router;
