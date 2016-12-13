@@ -17,7 +17,7 @@ router.get('/:studentId', (req, res, next) => {
 });
 
 // assumes req.body just has a toyId
-// like {toyId: 1}
+// like {toy_id: 1}
 // would also let you overwrite anything on student atm
 router.post('/:studentId', (req, res, next) => {
   Student.findById(req.params.studentId)
@@ -25,7 +25,7 @@ router.post('/:studentId', (req, res, next) => {
   .then(() => res.sendStatus(201));
 });
 
-// removes toyId from student
+// removes toy_id from student
 router.delete('/:studentId', (req, res, next) => {
   Student.findById(req.params.studentId)
   .then(student => student.update({toy_id: null}))
