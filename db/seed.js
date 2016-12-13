@@ -25,7 +25,10 @@ var data = {
     {name: "Toys for Tots"}
   ],
   toy: [
-    {name: "Hatchimals Egg (Interactive)"}
+    {name: "Hatchimals Egg (Interactive)"},
+    {name: "Snuggles My Dream Puppy Playset"},
+    {name: "Pokemon Z-Ring Interactive Set"},
+    {name: "Nerf N-Strike Remote Control Drone Blaster"}
   ],
   user: [
     {login: "eduardo@eduardo.com", password: "123", userType: "student"},

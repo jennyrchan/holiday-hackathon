@@ -38,11 +38,11 @@ module.exports = app
   .use(express.static(resolve(__dirname, '..', 'public')))
 
   // Serve our api
-  //.use('/api', require('./api'))
+  // .use('/api', require('./api'))
 
   // serves our routes
-  .use('/students', require('./routes/students-router'))
-  .use('/schools', require('./routes/schools-router'))
+  .use('/api/students', require('./routes/students-router'))
+  .use('/api/schools', require('./routes/schools-router'))
 
   // Send index.html for anything else.
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
