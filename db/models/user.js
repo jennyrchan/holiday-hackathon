@@ -5,13 +5,6 @@ const Sequelize = require('sequelize')
 const db = require('../index.js')
 
 const User = db.define('users', {
-  id: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  },
   login: {
     type: Sequelize.STRING,
     allowNull: false,
