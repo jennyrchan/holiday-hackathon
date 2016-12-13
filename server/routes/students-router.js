@@ -1,6 +1,6 @@
-import express from 'express';
-import db from '../../db';
-const Student = db.model('student');
+const express = require('express')
+const db =  require('../../db');
+const Student = require('../../db/models/student');
 
 const router = express.Router();
 
@@ -22,12 +22,14 @@ router.get('/:studentId', (req, res, next) => {
 router.post('/:studentId', (req, res, next) => {
   Student.findById(req.params.studentId)
   .then(student => student.update(req.body))
-  .then(() => res.sendStatus(200));
+  .then(() => res.sendStatus(201));
 });
 
 // removes toyId from student
 router.delete('/:studentId', (req, res, next) => {
   Student.findById(req.params.studentId)
-  .then(student => student.setToy({}))
-  .then(() => res.sendStatus(200));
+  .then(student => student.update({toy_id: null}))
+  .then(() => res.sendStatus(204));
 });
+
+module.exports = router;

@@ -38,7 +38,7 @@ module.exports = app
   .use(express.static(resolve(__dirname, '..', 'public')))
 
   // Serve our api
-  .use('/api', require('./api'))
+  //.use('/api', require('./api'))
 
   // serves our routes
   .use('/students', require('./routes/students-router'))
@@ -46,6 +46,16 @@ module.exports = app
 
   // Send index.html for anything else.
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
+
+
+
+// Send along any errors
+  .use((err, req, res, next) => {
+  res.status(500).send(err)
+})
+
+// No routes matched? 404.
+  .use((req, res) => res.status(404).end())
 
 // if (module === require.main) {
   // Start listening only if we're the main module.
