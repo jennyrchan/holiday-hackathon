@@ -40,9 +40,15 @@ export default class Student extends Component {
 
   handleChange(event) {
     console.log('EVENT', event.target.value);
-    this.setState({
-      toy: event.target.value
+
+    axios.get(`/api/toys/${event.target.value}`)
+    .then(res => res.data)
+    .then(toy => {
+      this.setState({
+        toy: toy
+      })
     })
+
   }
 
   render() {
@@ -72,7 +78,7 @@ export default class Student extends Component {
                           onChange={this.handleChange}>
                           {
                             toys && toys.map(toy => (
-                              <option key={toy.id} value={toy.name}>{toy.name}</option>
+                              <option key={toy.id} value={toy.id}>{toy.name}</option>
                             ))
                           }
                         </select>
