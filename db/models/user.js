@@ -1,50 +1,44 @@
 'use strict'
 
-const bcrypt = require('bcrypt')
 const Sequelize = require('sequelize')
 const db = require('../index.js')
 
-const User = db.define('users', {
-  name: Sequelize.STRING,  
-  email: {
+const User = db.define('user', {
+  login: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
-			isEmail: true,
-			notEmpty: true,
-		}
+      isEmail: true
+    }
   },
-
-  // We support oauth, so users may or may not have passwords.
-  password_digest: Sequelize.STRING,
-	password: Sequelize.VIRTUAL
-}, {
-	indexes: [{fields: ['email'], unique: true,}],
-  hooks: {
-    beforeCreate: setEmailAndPassword,
-    beforeUpdate: setEmailAndPassword,
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
-  instanceMethods: {
-    authenticate(plaintext) {
-      return new Promise((resolve, reject) =>
-        bcrypt.compare(plaintext, this.password_digest,
-          (err, result) =>
-            err ? reject(err) : resolve(result))
-        )
-    }    
+  userType: {
+    type:   Sequelize.ENUM,
+    values: ['student', 'schooladmin', 'donator'],
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   }
 })
 
-function setEmailAndPassword(user) {
-  user.email = user.email && user.email.toLowerCase()
-  if (!user.password) return Promise.resolve(user)
-
-  return new Promise((resolve, reject) =>
-	  bcrypt.hash(user.get('password'), 10, (err, hash) => {
-		  if (err) reject(err)
-		  user.set('password_digest', hash)
-      resolve(user)
-	  })
-  )
-}
+// function setEmailAndPassword(user) {
+//   user.email = user.email && user.email.toLowerCase()
+//   if (!user.password) return Promise.resolve(user)
+//
+//   return new Promise((resolve, reject) =>
+// 	  bcrypt.hash(user.get('password'), 10, (err, hash) => {
+// 		  if (err) reject(err)
+// 		  user.set('password_digest', hash)
+//       resolve(user)
+// 	  })
+//   )
+// }
 
 module.exports = User
