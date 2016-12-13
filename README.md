@@ -1,4 +1,4 @@
-# toy-to-ploy
+# toy-deploy
 
 * Backend Database
   - Table Schemas:

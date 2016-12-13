@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/jrc337/holiday-hackathon#readme",
   "dependencies": {
-    "axios": "^0.15.2",
+    "axios": "^0.15.3",
     "babel-preset-stage-2": "^6.18.0",
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",

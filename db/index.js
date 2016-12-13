@@ -36,7 +36,7 @@ Donator.belongsTo(User);
 
 // sync the db, creating it if necessary
 function sync() {
-  return db.sync({force: false})
+  return db.sync()
     .then(ok => console.log(`Synced models to db ${url}`))
     .catch(fail => {
       console.log(fail)

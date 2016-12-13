@@ -25,7 +25,10 @@ var data = {
     {name: "Toys for Tots"}
   ],
   toy: [
-    {name: "Hatchimals Egg (Interactive)"}
+    {name: "Hatchimals Egg (Interactive)", image: "http://media.brostrick.com/wp-content/uploads/2016/09/03200640/new-hatchimals-eggs-2016-draggls-owlicorn-penguala-2017-christmas-toys.jpg"},
+    {name: "Snuggles My Dream Puppy Playset", image: "http://media.brostrick.com/wp-content/uploads/2016/09/03200640/little-live-pets-snuggles-my-dream-puppy-toy-of-the-year-2016-2017.jpg"},
+    {name: "Pokemon Z-Ring Interactive Set", image: "http://media.brostrick.com/wp-content/uploads/2016/09/03200640/pokemon-z-ring-interactive-game-2016-2016-hottest-toys-of-the-year.jpg"},
+    {name: "Nerf N-Strike Remote Control Drone Blaster", image: "http://media.brostrick.com/wp-content/uploads/2016/09/03200640/2016-nerf-strike-drone-blaster-2017-e1473468657424.jpg"}
   ],
   user: [
     {login: "eduardo@eduardo.com", password: "123", userType: "student"},
