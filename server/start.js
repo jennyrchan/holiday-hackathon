@@ -43,6 +43,7 @@ module.exports = app
   // serves our routes
   .use('/api/students', require('./routes/students-router'))
   .use('/api/schools', require('./routes/schools-router'))
+  .use('/api/toys', require('./routes/toys-router'))
 
   // Send index.html for anything else.
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
