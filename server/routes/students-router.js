@@ -4,16 +4,15 @@ const Student = require('../../db/models/student');
 
 const router = express.Router();
 
-// meant for displaying wishlist/toy, sends entire student for now
+// meant for displaying wishlist/toy, sends [student, toy]
 router.get('/:studentId', (req, res, next) => {
+  let theStudent;
   Student.findById(req.params.studentId)
-  .then(student => res.send(student));
-  //could do this instead of line 11
-  //would be iffy if undefined I think
-  // .then(student => {
-  //   return student.getToy();
-  // })
-  // .then(toy => res.send(toy));
+  .then(student => {
+    theStudent = student;
+    return student.getToy();
+  })
+  .then(toy => res.send([theStudent, toy]));
 });
 
 // assumes req.body just has a toyId
