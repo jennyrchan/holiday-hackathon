@@ -12,17 +12,17 @@ var Promise = require('bluebird');
 
 var data = {
   student: [
-    {name: "Eduardo", schoolId: 1, userId: 1, fulfilled: false },
-    {name: "Molly", schoolId: 1, userId: 2, fulfilled: false},
-    {name: "Gabe", schoolId: 2, userId: 3, fulfilled: false},
-    {name: "Kate", schoolId: 2, userId: 4, toyId: 1, fulfilled: true, donatorId: 1}
+    {name: "Eduardo", school_id: "1", user_id: "1", fulfilled: false },
+    {name: "Molly", school_id: 1, user_id: 2, fulfilled: false},
+    {name: "Gabe", school_id: 2, user_id: 3, fulfilled: false},
+    {name: "Kate", school_id: 2, user_id: 4, toy_id: 1, fulfilled: true, donator_id: 1}
   ],
   school: [
-    {name: "P.S. 1", address: "123 Fake St, Faketown, NY 11220", userId: 5},
-    {name: "P.S. 2", address: "5 Hanover Sq, New York, NY 10004", userId: 6}
+    {name: "P.S. 1", address: "123 Fake St, Faketown, NY 11220"},
+    {name: "P.S. 2", address: "5 Hanover Sq, New York, NY 10004"}
   ],
   donator: [
-    {name: "Toys for Tots", userId: 7},
+    {name: "Toys for Tots", user_id: 7},
   ],
   toy: [
     {name: "Hatchimals Egg (Interactive)"}
@@ -32,8 +32,8 @@ var data = {
     {login: "molly@molly.com", password: "123", userType: "student"},
     {login: "gabe@gabe.com", password: "123", userType: "student"},
     {login: "kate@kate.com", password: "123", userType: "student"},
-    {login: "ps1@ps1.com", password: "123", userType: "school"},
-    {login: "ps2@ps2.com", password: "123", userType: "school"},
+    {login: "ps1@ps1.com", password: "123", userType: "schooladmin"},
+    {login: "ps2@ps2.com", password: "123", userType: "schooladmin"},
     {login: "toysfortots@toysfortots.com", password: "123", userType: "donator"}
   ]
 };
