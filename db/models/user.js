@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize')
 const db = require('../index.js')
 
-const User = db.define('users', {
+const User = db.define('user', {
   login: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -18,7 +18,7 @@ const User = db.define('users', {
       notEmpty: true
     }
   },
-  usertype: {
+  userType: {
     type:   Sequelize.ENUM,
     values: ['student', 'schooladmin', 'donator'],
     allowNull: false,

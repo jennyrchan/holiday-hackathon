@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../index.js')
 
-const Toy = db.define('Toy', {
+const Toy = db.define('toy', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,

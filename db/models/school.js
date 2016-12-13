@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../index.js')
 
-const School = db.define('School', {
+const School = db.define('school', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
