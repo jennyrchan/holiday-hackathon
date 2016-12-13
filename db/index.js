@@ -20,7 +20,10 @@ const db = module.exports = new Sequelize(url, {
 })
 
 // pull in our models
-require('./models')
+const Donator = require('./models/donator')
+const School = require('./models/school')
+const Toy = require('./models/toy')
+const User = require('./models/user')
 
 Student.belongsTo(School);
 School.hasMany(Student);
