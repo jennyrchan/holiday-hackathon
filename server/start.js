@@ -33,24 +33,28 @@ module.exports = app
   // Authentication middleware
   // .use(passport.initialize())
   // .use(passport.session())
-  
+
   // Serve static files from ../public
   .use(express.static(resolve(__dirname, '..', 'public')))
 
   // Serve our api
   .use('/api', require('./api'))
 
+  // serves our routes
+  .use('/students', require('./routes/students-router'))
+  .use('/schools', require('./routes/schools-router'))
+
   // Send index.html for anything else.
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
 
 // if (module === require.main) {
   // Start listening only if we're the main module.
-  // 
+  //
   // https://nodejs.org/api/modules.html#modules_accessing_the_main_module
   const server = app.listen(
     process.env.PORT || 1337,
     () => {
-      console.log(`--- Started HTTP Server for toy_deploy ---`)      
+      console.log(`--- Started HTTP Server for toy_deploy ---`)
       console.log(`Listening on ${JSON.stringify(server.address())}`)
     }
   )
